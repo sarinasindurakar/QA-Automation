@@ -1,10 +1,8 @@
 package Base;
 
-import Pages.ActivityDetailPage;
-import Pages.ActivityPage;
-import Pages.DashBoardPage;
-import Pages.LoginPage;
+import Pages.*;
 import com.github.javafaker.Faker;
+import jdk.jfr.Description;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
@@ -16,6 +14,7 @@ public class BaseTest {
 
     public DashBoardPage dashboard;
     public ActivityDetailPage activitydetailpage;
+    public DescriptionPage descriptionPage;
 
     public Faker fakedata;
    public ActivityPage activitypage;
@@ -30,6 +29,7 @@ public class BaseTest {
        dashboard=new DashBoardPage(driver);
        activitypage=new ActivityPage(driver);
         activitydetailpage=new ActivityDetailPage(driver);
+        descriptionPage=new DescriptionPage(driver);
         fakedata=new Faker();
 
     }

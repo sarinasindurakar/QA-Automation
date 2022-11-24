@@ -10,6 +10,7 @@ public class ActivityPage {
     private By savebutton=By.xpath("//span[text()=\"Save\"]");
     private By title=By.xpath("(//div[.=\"title\"])[2]");
     private By activitystatus=By.xpath("//div[.=\"activity-status\"]");
+    private By descriptiontab=By.xpath("//div[.=\"description\"]");
 
     public ActivityPage(WebDriver driver){
 
@@ -29,7 +30,11 @@ public class ActivityPage {
         return new ActivityDetailPage(driver);
 
     }
+    public DescriptionPage clickdescription(){
+        driver.findElement(descriptiontab).click();
+        return new DescriptionPage(driver);
 
+    }
 
 
    // public  boolean activityname(){

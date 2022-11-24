@@ -19,4 +19,5 @@ public class ConstantUtils {
     public static final String activityidentifier= fakerdata.address().buildingNumber();
     public static final  String activitystatusheading="activity-status";
     public static final  String dashboardheading="Your Activities";
+    public static final String descriptiontitle="description";
 }
