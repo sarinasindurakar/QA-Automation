@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class SignupPage {
     private WebDriver driver;
@@ -17,6 +18,7 @@ public class SignupPage {
     private By  organization=By.xpath("(//div[@class=\"details mx-4 xl:px-1\"])[2]");
     private By publisherName=By.id("publisher-name");
     private  By publisherId=By.id("publisher-id");
+
     private By organizationumber=By.id("registration-number");
   private By dropdown=By.xpath("(//input[@class=\"multiselect-search\"])[2]");
   private By element=By.id("multiselect-option-US-EIN");
@@ -29,11 +31,14 @@ public class SignupPage {
         jsexecutor=new JavaExecutorUtils(driver);
     }
     public void clickregister() throws InterruptedException {
+        jsexecutor.scrollSignup();
         driver.findElement(register).click();
         Thread.sleep(3000);
        // driver.findElement(organization).click();
     }
-    public void fillPublisherform( String pn,String pid,String ON){
+    public void fillPublisherform( String pn,String pid,String ON) throws InterruptedException {
+        jsexecutor.scrolladmin();
+        Thread.sleep(3000);
 
         driver.findElement(publisherName).sendKeys(pn);
         driver.findElement(publisherId).sendKeys(pid);
@@ -41,7 +46,7 @@ public class SignupPage {
 
     }
     public void finddropdownelement(){
-        jsexecutor.scroll();
+        //jsexecutor.scroll();
       dpp=  driver.findElement(dropdown);
       dpp.click();
 
@@ -52,6 +57,7 @@ public class SignupPage {
 
         }
         public AdminInfoPage clicknextstep(){
+            jsexecutor.scroll(register);
         driver.findElement(nextbutton).click();
         return new AdminInfoPage(driver);
         }

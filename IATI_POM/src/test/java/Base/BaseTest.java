@@ -1,9 +1,13 @@
 package Base;
 
+import DriverFactory.DriverFactory;
 import Pages.*;
+import Utils.JavaExecutorUtils;
+import Utils.WaitUtils;
 import com.github.javafaker.Faker;
 import jdk.jfr.Description;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +18,7 @@ import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Properties;
 
 public class BaseTest {
     private WebDriver driver;
@@ -22,21 +27,35 @@ public class BaseTest {
     public DashBoardPage dashboard;
     public ActivityDetailPage activitydetailpage;
     public DescriptionPage descriptionPage;
+    public WaitUtils waitUtils;
+    public HeaderPage headerPage;
 
     public Faker fakedata;
+    public DriverFactory driverFactory;
+    public Properties properties;
+    public JavaExecutorUtils jsexecutor;
    public ActivityPage activitypage;
 
     @BeforeSuite
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "F:\\Internship-2022\\Automation\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get("https://iatipublisher-dev.yipl.com.np/");
+        //intidriver();
+        //driverFactory=new DriverFactory();
+        //properties =driverFactory.initproperties();
+        //driver=driverFactory.initDriver(properties);
+
+       System.setProperty("webdriver.chrome.driver", "F:\\Internship-2022\\Automation\\chromedriver.exe");
+       driver = new ChromeDriver();
+       driver.get("https://iatipublisher-dev.yipl.com.np/");
 
        loginPage = new LoginPage(driver);
        dashboard=new DashBoardPage(driver);
        activitypage=new ActivityPage(driver);
         activitydetailpage=new ActivityDetailPage(driver);
         descriptionPage=new DescriptionPage(driver);
+        jsexecutor=new JavaExecutorUtils(driver);
+        headerPage=new HeaderPage(driver);
+
+       waitUtils=new WaitUtils(driver);
         fakedata=new Faker();
 
     }

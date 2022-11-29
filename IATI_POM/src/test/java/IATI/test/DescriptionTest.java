@@ -26,6 +26,7 @@ public class DescriptionTest  extends BaseTest {
         descriptionPage.type();
         descriptionPage.setnarrative(fakedata.chuckNorris().fact());
         Thread.sleep(5000);
+        //jsexecutor.scroll(locator);
         descriptionPage.setlanguage();
 
     }

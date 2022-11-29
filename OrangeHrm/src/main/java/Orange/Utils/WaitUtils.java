@@ -11,6 +11,7 @@ import java.time.Duration;
 
 public class WaitUtils {
     private WebDriver driver;
+   private WebDriverWait wait;
 
 
     public WaitUtils(WebDriver driver) {
@@ -19,7 +20,7 @@ public class WaitUtils {
 
 
     public  WebElement presenceOfElement(By locator,long waitTime) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitTime));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(waitTime));
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 }

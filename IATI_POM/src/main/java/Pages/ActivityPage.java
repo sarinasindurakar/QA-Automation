@@ -1,10 +1,12 @@
 package Pages;
 
+import Utils.JavaExecutorUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class ActivityPage {
     private WebDriver driver;
+    private JavaExecutorUtils jsexecutor;
     private By narrative=By.xpath("(//input[@class=\"form__input\"])[1]");
     private By activityidentifier=By.xpath("//input[starts-with(@placeholder,'Type activity-identifier here')]");
     private By savebutton=By.xpath("//span[text()=\"Save\"]");
@@ -15,6 +17,7 @@ public class ActivityPage {
     public ActivityPage(WebDriver driver){
 
         this.driver=driver;
+        jsexecutor=new JavaExecutorUtils(driver);
     }
     public void setNarrative( String narr){
 
@@ -26,6 +29,7 @@ public class ActivityPage {
         driver.findElement(activityidentifier).sendKeys(number);
     }
     public ActivityDetailPage clicksavebutton(){
+        jsexecutor.scrollactivity();
         driver.findElement(savebutton).click();
         return new ActivityDetailPage(driver);
 

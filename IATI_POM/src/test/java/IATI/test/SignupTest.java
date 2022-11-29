@@ -12,7 +12,7 @@ public class SignupTest extends BaseTest {
     @Test
     public void  testSignup() throws InterruptedException {
       SignupPage Sn= loginPage.clicksignupbutton();
-      Thread.sleep(3000);
+     // Thread.sleep(3000);
       Sn.clickregister();
 
       Sn.fillPublisherform("AIDSPAN","aidspan","32-0060251");

@@ -20,10 +20,10 @@ public class ActivityTest extends BaseTest {
     @Test(priority = 2)
     public void activityform() throws InterruptedException {
         activitypage.setNarrative(fakedata.book().title());
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         activitypage.setActivityidentifier(fakedata.address().buildingNumber());
         activitypage.clicksavebutton();
-        Thread.sleep(4000);
+       // Thread.sleep(4000);
     }
 
 

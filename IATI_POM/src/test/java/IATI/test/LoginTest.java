@@ -24,7 +24,6 @@ public class LoginTest extends BaseTest {
        loginPage.setUsername("testautomate");
         loginPage.setPassword("12345678");
         loginPage.clickloginbutton();
-        Thread.sleep(3000);
         dashboard.clickprofiledropdown();
     }
     @Test(priority =2)
