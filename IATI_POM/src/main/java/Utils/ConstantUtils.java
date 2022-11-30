@@ -20,4 +20,8 @@ public class ConstantUtils {
     public static final  String activitystatusheading="activity-status";
     public static final  String dashboardheading="Your Activities";
     public static final String descriptiontitle="description";
+    public static final String publishing ="Publishing Checklist";
+    public static final String aboutus="About IATI Publisher";
+    public static final String support="Support";
+    public static final String Iatistandard="IATI Standard";
 }

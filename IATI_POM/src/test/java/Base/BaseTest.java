@@ -15,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,16 +37,21 @@ public class BaseTest {
     public JavaExecutorUtils jsexecutor;
    public ActivityPage activitypage;
 
-    @BeforeSuite
+    @BeforeTest
     public void setUp(){
-        //intidriver();
-        //driverFactory=new DriverFactory();
-        //properties =driverFactory.initproperties();
-        //driver=driverFactory.initDriver(properties);
+/*
+        driverFactory=new DriverFactory();
+        properties =driverFactory.initproperties();
+        driver=driverFactory.initDriver(properties);
+
+ */
 
        System.setProperty("webdriver.chrome.driver", "F:\\Internship-2022\\Automation\\chromedriver.exe");
        driver = new ChromeDriver();
        driver.get("https://iatipublisher-dev.yipl.com.np/");
+
+
+        driver.manage().window().maximize();
 
        loginPage = new LoginPage(driver);
        dashboard=new DashBoardPage(driver);
